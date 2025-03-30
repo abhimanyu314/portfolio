@@ -8,8 +8,18 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
     </head>
     <body>
+        <div class="background-shapes">
+            <div class="shape circle"></div>
+            <div class="shape square"></div>
+            <div class="shape triangle"></div>
+            <div class="shape square-2"></div>
+            <div class="shape circle-2"></div>
+            <div class="code-pattern"></div>
+        </div>
+        <div class="pattern-dots"></div>
         <div id="welcome-modal" class="modal">
             <div class="modal-content">
                 <h2>Welcome to My Portfolio!</h2>
@@ -55,9 +65,38 @@
                         </div>
                         <div class="profile-background"></div>
                     </div>
+                    <div class="tech-stack" data-aos="fade-up">
+                        <div class="tech-title">
+                            <i class="fas fa-code-branch"></i>
+                            <h4>Open Source & Technologies</h4>
+                        </div>
+                        <div class="tech-grid">
+                            <div class="tech-item" data-tilt data-tilt-max="10">
+                                <i class="fab fa-html5"></i>
+                                <span>HTML5</span>
+                            </div>
+                            <div class="tech-item" data-tilt data-tilt-max="10">
+                                <i class="fab fa-css3-alt"></i>
+                                <span>CSS3</span>
+                            </div>
+                            <div class="tech-item" data-tilt data-tilt-max="10">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </div>
+                            <div class="tech-item" data-tilt data-tilt-max="10">
+                                <i class="fas fa-code"></i>
+                                <span>Open Source</span>
+                            </div>
+                        </div>
+                        <div class="tech-decoration">
+                            <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png" alt="HTML" class="floating-icon">
+                            <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png" alt="CSS" class="floating-icon">
+                            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" class="floating-icon">
+                        </div>
+                    </div>
                     <div class="bio-section" data-aos="fade-up">
                         <div class="bio-icon"><i class="fas fa-quote-left"></i></div>
-                        <p>I'm Abhimanyu Tyagi, a web developer based in Vadodara, India, with a passion for crafting clean, responsive, and user-friendly websites. I specialize in HTML and CSS, focusing on creating seamless digital experiences that blend functionality with aesthetics.</p>
+                        <p>I'm Abhimanyu Tyagi, a web developer based in delhi , India, with a passion for crafting clean, responsive, and user-friendly websites. I specialize in HTML and CSS, focusing on creating seamless digital experiences that blend functionality with aesthetics.</p>
                         <p>Driven by curiosity and a keen eye for detail, I enjoy refining my skills and keeping up with modern web design trends. Beyond coding, I appreciate thoughtful design, problem-solving, and continuous learning.</p>
                         <p class="connect-text"><i class="fas fa-handshake"></i> Let's connect and build something meaningful.</p>
                     </div>
@@ -67,7 +106,7 @@
                         </div>
                         <h4>Education</h4>
                         <ul>
-                            <li><i class="fas fa-university"></i> Currently pursuing graduation at Parul University</li>
+                            <li><i class="fas fa-university"></i> Currently pursuing graduation at parul <u>university</u></li>
                             <li><i class="fas fa-school"></i> Completed Class XII from Delhi Public School</li>
                         </ul>
                     </div>
@@ -90,6 +129,11 @@
                                 <p>Fitness & Gym</p>
                             </div>
                         </div>
+                    </div>
+                    <div class="wave-bottom">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                            <path fill="#2c3e50" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                        </svg>
                     </div>
                 </div>
             </section>
@@ -114,8 +158,8 @@
                             <a href="https://www.instagram.com/abhimanyu_tyagii?igsh=MXN3aWs3ZXoybXo4cQ==" target="_blank">@abhimanyu_tyagii</a>
                         </div>
                         <div class="contact-item">
-                            <i class="fab fa-twitter"></i>
-                            <h4>Twitter</h4>
+                            <i class="fab fa-x-twitter"></i>
+                            <h4>X (Twitter)</h4>
                             <a href="https://x.com/ATyagi3105" target="_blank">@ATyagi3105</a>
                         </div>
                     </div>
@@ -129,68 +173,6 @@
             </div>
         </footer>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                // Show modal when page loads
-                const modal = document.getElementById('welcome-modal');
-                modal.style.display = 'block';
-
-                // Handle form submission
-                const form = document.getElementById('visitor-form');
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const visitorName = document.getElementById('visitorName').value;
-                    const howDidYouKnow = document.getElementById('howDidYouKnow').value;
-                    
-                    // Save visitor info if needed
-                    localStorage.setItem('visitorName', visitorName);
-                    
-                    // Close modal
-                    modal.style.display = 'none';
-                    
-                    // Show welcome message
-                    alert(`Welcome ${visitorName}! Thank you for visiting my portfolio.`);
-                });
-
-                // Add scroll animation
-                const observerOptions = {
-                    threshold: 0.2
-                };
-
-                const observer = new IntersectionObserver(function(entries) {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('animate');
-                        }
-                    });
-                }, observerOptions);
-
-                // Observe about and contact sections
-                const sections = document.querySelectorAll('.about-content, .contact-content');
-                sections.forEach(section => {
-                    observer.observe(section);
-                });
-
-                // Smooth scroll for navigation links
-                document.querySelectorAll('nav a').forEach(anchor => {
-                    anchor.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const targetId = this.getAttribute('href');
-                        const targetSection = document.querySelector(targetId);
-                        
-                        targetSection.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    });
-                });
-            });
-
-            // Initialize AOS
-            AOS.init({
-                duration: 1000,
-                once: true,
-                offset: 100
-            });
-        </script>
+        <script src="script.js"></script>
     </body>
 </html>     
