@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Portfolio</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    </head>
+    <body>
+        <div id="welcome-modal" class="modal">
+            <div class="modal-content">
+                <h2>Welcome to My Portfolio!</h2>
+                <form id="visitor-form">
+                    <div class="form-group">
+                        <label for="visitorName">What's your good name?</label>
+                        <input type="text" id="visitorName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="howDidYouKnow">How did you know about Abhimanyu?</label>
+                        <select id="howDidYouKnow" required>
+                            <option value="">Please select</option>
+                            <option value="friend">He is my friend</option>
+                            <option value="social">Social Media</option>
+                            <option value="professional">Professional Network</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-btn">Let's Begin!</button>
+                </form>
+            </div>
+        </div>
+        <header>
+            <nav>
+                <h1>Abhimanyu Tyagi</h1>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="about">
+                <div class="about-content" data-aos="fade-up">
+                    <div class="section-header">
+                        <i class="fas fa-code section-icon"></i>
+                        <h3>About Me</h3>
+                    </div>
+                    <div class="profile-container" data-aos="zoom-in">
+                        <div class="profile-image">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="profile-background"></div>
+                    </div>
+                    <div class="bio-section" data-aos="fade-up">
+                        <div class="bio-icon"><i class="fas fa-quote-left"></i></div>
+                        <p>I'm Abhimanyu Tyagi, a web developer based in Vadodara, India, with a passion for crafting clean, responsive, and user-friendly websites. I specialize in HTML and CSS, focusing on creating seamless digital experiences that blend functionality with aesthetics.</p>
+                        <p>Driven by curiosity and a keen eye for detail, I enjoy refining my skills and keeping up with modern web design trends. Beyond coding, I appreciate thoughtful design, problem-solving, and continuous learning.</p>
+                        <p class="connect-text"><i class="fas fa-handshake"></i> Let's connect and build something meaningful.</p>
+                    </div>
+                    <div class="education" data-aos="fade-left">
+                        <div class="section-icon-small">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>Education</h4>
+                        <ul>
+                            <li><i class="fas fa-university"></i> Currently pursuing graduation at Parul University</li>
+                            <li><i class="fas fa-school"></i> Completed Class XII from Delhi Public School</li>
+                        </ul>
+                    </div>
+                    <div class="interests" data-aos="fade-up">
+                        <div class="section-icon-small">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Interests & Hobbies</h4>
+                        <div class="interests-grid">
+                            <div class="interest-item" data-aos="zoom-in">
+                                <div class="interest-icon">
+                                    <i class="fas fa-futbol"></i>
+                                </div>
+                                <p>Football Enthusiast</p>
+                            </div>
+                            <div class="interest-item" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="interest-icon">
+                                    <i class="fas fa-dumbbell"></i>
+                                </div>
+                                <p>Fitness & Gym</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <div class="contact-content">
+                    <h3>Contact Me</h3>
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <h4>Email</h4>
+                            <a href="mailto:abhimanyu.tyagi306@gmail.com">abhimanyu.tyagi306@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <h4>Phone</h4>
+                            <a href="tel:+917011903425">+91 7011903425</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-instagram"></i>
+                            <h4>Instagram</h4>
+                            <a href="https://www.instagram.com/abhimanyu_tyagii?igsh=MXN3aWs3ZXoybXo4cQ==" target="_blank">@abhimanyu_tyagii</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-twitter"></i>
+                            <h4>Twitter</h4>
+                            <a href="https://x.com/ATyagi3105" target="_blank">@ATyagi3105</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <p class="copyright">Built by Abhimanyu</p>
+            </div>
+        </footer>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Show modal when page loads
+                const modal = document.getElementById('welcome-modal');
+                modal.style.display = 'block';
+
+                // Handle form submission
+                const form = document.getElementById('visitor-form');
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const visitorName = document.getElementById('visitorName').value;
+                    const howDidYouKnow = document.getElementById('howDidYouKnow').value;
+                    
+                    // Save visitor info if needed
+                    localStorage.setItem('visitorName', visitorName);
+                    
+                    // Close modal
+                    modal.style.display = 'none';
+                    
+                    // Show welcome message
+                    alert(`Welcome ${visitorName}! Thank you for visiting my portfolio.`);
+                });
+
+                // Add scroll animation
+                const observerOptions = {
+                    threshold: 0.2
+                };
+
+                const observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate');
+                        }
+                    });
+                }, observerOptions);
+
+                // Observe about and contact sections
+                const sections = document.querySelectorAll('.about-content, .contact-content');
+                sections.forEach(section => {
+                    observer.observe(section);
+                });
+
+                // Smooth scroll for navigation links
+                document.querySelectorAll('nav a').forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        const targetSection = document.querySelector(targetId);
+                        
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+            });
+
+            // Initialize AOS
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100
+            });
+        </script>
+    </body>
+</html>     
